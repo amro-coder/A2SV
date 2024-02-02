@@ -1,4 +1,4 @@
-# problem link:https://www.hackerrank.com/challenges/python-arithmetic-operators/problem?isFullScreen=true
+# problem link:https://www.hackerrank.com/challenges/python-arithmetic-operators/problem
 # solution:
 if __name__ == '__main__':
     a = int(input())
