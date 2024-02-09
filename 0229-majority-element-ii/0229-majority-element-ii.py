@@ -1,9 +1,9 @@
 from collections import Counter
 class Solution:
     def majorityElement(self,nums):
-        first_voted_value = 10**10
+        first_voted_value = None
         first_vote_cnt = 0
-        second_voted_value = 10**10
+        second_voted_value = None
         second_vote_cnt = 0
         for i in range(len(nums)):
             if nums[i]==first_voted_value:
