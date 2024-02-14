@@ -1,11 +1,16 @@
 class Solution:
-    def flipgame(self, fronts: List[int], backs: List[int]) -> int:
-        cant_be_good=set()
+    def good(self, value, fronts, backs):
         for i in range(len(fronts)):
-            if fronts[i]==backs[i]:
-                cant_be_good.add(fronts[i])
-        ans=2000 + 1
-        for value in fronts+backs:
-            if value not in cant_be_good:
-                ans=min(ans,value)
-        return ans if ans!=2000+1 else 0
+            if fronts[i] == backs[i] == value:
+                return False
+            if backs[i] == value:
+                continue
+            if fronts[i] == value:
+                backs[i], fronts[i] = fronts[i], backs[i]
+        return True
+
+    def flipgame(self, fronts: List[int], backs: List[int]) -> int:
+        for value in range(1, 2001):
+            if (value in fronts+backs) and self.good(value, fronts, backs):
+                return value
+        return 0
