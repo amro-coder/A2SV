@@ -1,7 +1,7 @@
 class UndergroundSystem:
 
     def __init__(self):
-        self.start_station_for_id=[('',0)]*(10**6+1)    
+        self.start_station_for_id=defaultdict(lambda :('',0))   
         self.num_journeys=defaultdict(int)
         self.total_time=defaultdict(int)
         
