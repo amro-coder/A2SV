@@ -1,7 +1,6 @@
 class Solution:
     def imageSmoother(self, img: List[List[int]]) -> List[List[int]]:           
-        n=len(img)
-        m=len(img[0])
+        n,m=len(img),len(img[0])
         ans=[[0]*m for _ in range(n)]
         for i in range(n):
             for j in range(m):
