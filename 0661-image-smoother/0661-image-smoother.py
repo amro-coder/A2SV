@@ -12,5 +12,4 @@ class Solution:
                             num+=1
                             sum_value+=img[i+dx][j+dy]
                 ans[i][j]=sum_value//num
-                
         return ans
