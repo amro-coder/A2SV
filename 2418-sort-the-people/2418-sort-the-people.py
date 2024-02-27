@@ -7,4 +7,11 @@ class Solution:
             for j in range(i,n):
                 if x[i]<x[j]:
                     x[i],x[j]=x[j],x[i]
+        # selection sort
+        min_index=0
+        for i in range(n):
+            for j in range(min_index,n):
+                if x[j]>x[min_index]:
+                    x[j],x[min_index]=x[min_index],x[j]
+            min_index+=1
         return [i[1] for i in x]
