@@ -1,6 +1,6 @@
 class Solution:
     def minimumLengthEncoding(self, words: List[str]) -> int:
-        words=sorted(set(words),key=lambda a:len(a))
+        words=sorted(words,key=lambda a:len(a))
         ans=sum([len(i)+1 for i in words])
         for i in range(len(words)):
             for j in range(i+1,len(words)):
