@@ -1,7 +1,5 @@
 class Solution:
     def smallestNumber(self, num: int) -> int:
-        if num==0:
-            return 0
         postive=num>0
         ans=""
         num=sorted(str(abs(num)),reverse=not postive)
