@@ -24,7 +24,8 @@ class WordDictionary:
             index2=len(word)-1-word[::-1].index('.')
             for i in range(26):
                 for j in range(26):
-                    if word[:index1]+chr(97+i)+word[index1+1:index2]+chr(97+j)+word[index2+1:] in self.words:
+                    w =word[:index1]+chr(97+i)+word[index1+1:index2]+chr(97+j)+word[index2+1:]
+                    if w in self.words:
                         return True
             return False
             
