@@ -3,7 +3,11 @@ class Solution:
         low,high=1,len(nums)-1
         while low<=high:
             mid=(low+high)>>1
-            if sum([i<=mid for i in nums])<=mid:
+            cnt=0
+            for i in nums:
+                if i<=mid:
+                    cnt+=1
+            if cnt<=mid:
                 low=mid+1
             else:
                 high=mid-1
