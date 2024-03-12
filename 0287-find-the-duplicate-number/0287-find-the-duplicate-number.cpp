@@ -10,7 +10,6 @@ public:
             nums[idx] = -nums[idx];
         }
 
-        return len;
-        
+        return 0;
     }
 };
