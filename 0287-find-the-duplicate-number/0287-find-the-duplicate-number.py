@@ -1,15 +1,17 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        low,high=1,len(nums)-1
-        while low<=high:
-            mid=(low+high)>>1
-            cnt=0
-            for i in nums:
-                if i<=mid:
-                    cnt+=1
-            if cnt<=mid:
-                low=mid+1
-            else:
-                high=mid-1
-        return low
+        
+        # finding the cycle
+        slow=nums[0]
+        fast=nums[nums[0]]
+        while slow!=fast:
+            slow=nums[slow]
+            fast=nums[nums[fast]]
+            
+        # finding the start of the cycle, which is the answer
+        slow=0
+        while slow!=fast:
+            slow=nums[slow]
+            fast=nums[fast]
+        return slow
         
