@@ -12,4 +12,4 @@ class Solution:
                 break
             right_bigger=i
         else:
-            nums.sort()
+            nums.reverse()
