@@ -6,8 +6,9 @@ class Solution:
                 for j in range(len(nums)-1,i,-1):
                     if nums[j]>nums[i]:
                         nums[j],nums[i]=nums[i],nums[j]
-                        nums[i+1:]=sorted(nums[i+1:])
                         break
+                for j in range((len(nums)-i-1)//2):
+                    nums[j+i+1],nums[~j]=nums[~j],nums[j+i+1]
                 break
             right_bigger=i
         else:
