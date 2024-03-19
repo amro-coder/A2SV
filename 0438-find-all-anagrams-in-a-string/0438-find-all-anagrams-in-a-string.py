@@ -6,8 +6,6 @@ class Solution:
         for i in range(len(p),len(s)):
             cnt[s[i]]+=1
             cnt[s[i-len(p)]]-=1
-            if cnt[s[i]]==0:
-                del cnt[s[i]]
             if cnt[s[i-len(p)]]==0:
                 del cnt[s[i-len(p)]]
             
