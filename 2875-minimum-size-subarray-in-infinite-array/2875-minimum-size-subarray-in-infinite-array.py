@@ -2,13 +2,6 @@ class Solution:
     def minSizeSubarray(self, nums: List[int], target: int) -> int:
         ans=float("inf")
         extended_nums=nums+nums
-        prefix_nums=[0]+list(accumulate(nums))
-        last_index=defaultdict(lambda :-1)
-        for i in range(len(nums)+1):
-            if last_index[prefix_nums[i]-target]!=-1:
-                ans=min(ans,i-last_index[prefix_nums[i]-target])
-            last_index[prefix_nums[i]]=i
-        
         c=sum(nums)
         rem=target%c
         prefix_ex_nums=[0]+list(accumulate(extended_nums))
