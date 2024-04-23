@@ -14,6 +14,6 @@ class Solution:
                 elif t=="*":
                     ans.append(num1*num2)
                 else:
-                    ans.append( (abs(num1)//abs(num2)) * (pow(-1,1+(num1*num2>0))) )
+                    ans.append(int(num1/num2))
         return ans[0]
         
