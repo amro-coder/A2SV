@@ -12,14 +12,12 @@ class Solution:
             qMax.append((nums[i],i))
             
             while qMin and qMax and qMax[0][0]-qMin[0][0]>limit:
-                ans+=i-start
                 start+=1
                 if qMin[0][1]<start:
                     qMin.popleft()
                 if qMax[0][1]<start:
                     qMax.popleft()
                     
-        for i in range(start,n):
-            ans+=n-i
+            ans+=i-start+1
             
         return ans
