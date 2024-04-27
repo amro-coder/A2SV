@@ -6,8 +6,9 @@ class Solution:
             while arr[i]<stack[-1][0]:
                 val,mid=stack.pop()
                 ans+=(mid-stack[-1][1])*(i-mid)*val
+                ans%=mod
             stack.append((arr[i],i))
-        return ans%mod
+        return ans
                 
                 
                 
