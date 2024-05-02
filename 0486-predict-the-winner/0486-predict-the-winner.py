@@ -15,9 +15,7 @@ class Solution:
                 op1=(op1[0],op1[1]+nums[0])
                 op2=getMaxScore(nums[:-1],True)
                 op2=(op2[0],op2[1]+nums[-1])
-                if op2[1]>=op1[1]:
-                    return op2
-                return op1
+                return min(op1,op2)
                 
         player1,player2=getMaxScore(nums)
         return player1>=player2
