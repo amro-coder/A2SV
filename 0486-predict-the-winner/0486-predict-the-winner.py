@@ -8,7 +8,7 @@ class Solution:
         for length in range(2,n+1):
             for i in range(n-length+1):
                 j=i+length-1
-                dp[i][j]=max(nums[i]+ prefixSum[j+1]-prefixSum[i+1]-dp[i+1][j],nums[j]+sum(nums[i:j])-dp[i][j-1])
+                dp[i][j]=max(nums[i]+ prefixSum[j+1]-prefixSum[i+1]-dp[i+1][j],nums[j]+prefixSum[j]-prefixSum[i]-dp[i][j-1])
         return 2*dp[0][n-1]>=sum(nums)
 #         def getMaxScore(nums,ind=0):
 #             if not nums:
