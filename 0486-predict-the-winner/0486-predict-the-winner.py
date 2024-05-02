@@ -2,10 +2,22 @@ class Solution:
     def predictTheWinner(self, nums: List[int]) -> bool:
         def getMaxScore(nums,myturn=True):
             if not nums:
-                return 0
+                return (0,0)
             if myturn:
-                return max(getMaxScore(nums[1:],False)+nums[0],getMaxScore(nums[:-1],False)+nums[-1])
-            return min(getMaxScore(nums[1:],True),getMaxScore(nums[:-1],True))
-        player1=getMaxScore(nums)
-        player2=sum(nums)-player1
+                op1=getMaxScore(nums[1:],False)
+                op1=(op1[0]+nums[0],op1[1])
+                op2=getMaxScore(nums[:-1],False)
+                op2=(op2[0]+nums[-1],op2[1])
+                return max(op1,op2)
+                
+            else:
+                op1=getMaxScore(nums[1:],True)
+                op1=(op1[0],op1[1]+nums[0])
+                op2=getMaxScore(nums[:-1],True)
+                op2=(op2[0],op2[1]+nums[-1])
+                if op2[1]>=op1[1]:
+                    return op2
+                return op1
+                
+        player1,player2=getMaxScore(nums)
         return player1>=player2
