@@ -3,7 +3,6 @@ class Solution:
         def getAns(n,k,start):
             if n==1:
                 return start
-            cand=[start,1^start]
             if k<=(1<<(n-2)):
                 return getAns(n-1,k,start)
             return getAns(n-1,k-(1<<(n-2)),1^start)
