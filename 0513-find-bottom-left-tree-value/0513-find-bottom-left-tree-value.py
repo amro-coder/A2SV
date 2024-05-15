@@ -10,8 +10,6 @@ class Solution:
         dpMax[None]=0
         def getMaxDepth(node):
             if node==None: return 0
-            if node in dpMax:
-                return dpMax[node]
             dpMax[node]=max(getMaxDepth(node.left),getMaxDepth(node.right))+1
             return dpMax[node]
         getMaxDepth(root)
