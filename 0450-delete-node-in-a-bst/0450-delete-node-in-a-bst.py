@@ -12,8 +12,8 @@ class Solution:
         def delete(r,key):# takes the tree and the key. returns the tree after deleting key
             if not r: return None
             if key<r.val: r.left=delete(r.left,key)
-            elif key>r.val: r.right=delete(r.right,key)
-            else:
+            if key>r.val: r.right=delete(r.right,key)
+            if key==r.val:
                 if not r.left: return r.right
                 if not r.right: return r.left
                 r.val=get_min(r.right)
