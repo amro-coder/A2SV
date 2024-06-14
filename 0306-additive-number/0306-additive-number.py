@@ -8,11 +8,11 @@ class Solution:
                 num1=int(num[:i])
                 num2=int(num[i:j])
                 num3=num1+num2
-                mynum=num[:j]
+                mynum=list(num[:j])
                 while len(mynum)<len(num):
-                    mynum+=str(num3)
+                    mynum.extend([temp for temp in str(num3)])
                     num1,num2=num2,num3
                     num3=num1+num2
-                if mynum==num:
+                if ''.join(mynum)==num:
                     return True
         return False
