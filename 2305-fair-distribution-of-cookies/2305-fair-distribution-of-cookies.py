@@ -7,6 +7,8 @@ class Solution:
             if start==len(cookies):
                 ans=min(ans,max(current))
                 return
+            if max(current)>=ans:
+                return
             for i in range(k):
                 current[i]+=cookies[start]
                 backtrack(start+1)
