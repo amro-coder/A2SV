@@ -5,7 +5,7 @@ class Solution:
                 return numParts>1
             ans=False
             for i in range(start,len(s)):
-                if not ans and (value==float("inf") or int(s[start:i+1])==value):
+                if value==float("inf") or int(s[start:i+1])==value:
                     ans|=backtrack(i+1,int(s[start:i+1])-1,numParts+1)
             return ans
         return backtrack(0,float("inf"),0)
