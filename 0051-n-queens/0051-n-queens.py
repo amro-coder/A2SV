@@ -1,28 +1,15 @@
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
         def get_attackable(x,y):
-            ans=set([(i,y) for i in range(n)]+[(x,i) for i in range(n)])
-        
+            ans=set((i,y) for i in range(x,n))
             i,j=x,y
             while 0<=i<n and 0<=j<n:
                 ans.add((i,j))
                 i,j=i+1,j+1
-            
-            i,j=x,y
-            while 0<=i<n and 0<=j<n:
-                ans.add((i,j))
-                i,j=i-1,j-1
-            
-            i,j=x,y
-            while 0<=i<n and 0<=j<n:
-                ans.add((i,j))
-                i,j=i-1,j+1
-            
             i,j=x,y
             while 0<=i<n and 0<=j<n:
                 ans.add((i,j))
                 i,j=i+1,j-1
-                
             return ans
         
         ans=[]
