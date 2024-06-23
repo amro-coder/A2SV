@@ -5,7 +5,6 @@ class Solution:
             r=len(cur)
             if r==n:
                 ans.append(['.'*cur[i]+'Q'+'.'*(n-cur[i]-1) for i in range(n)])
-                return
             for c in range(n):
                 if not any([abs(i-r)==abs(cur[i]-c) or cur[i]==c for i in range(r)]):
                     cur.append(c)
