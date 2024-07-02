@@ -1,18 +1,17 @@
 class Solution:
     def isAdditiveNumber(self, num: str) -> bool:
-        n=len(num)
-        for i in range(1,n):
-            for j in range(i,n):
-                if j-i<1 or (num[0]=='0' and i>1) or (num[i]=='0' and j-i>1):
-                    continue
-                num1=int(num[:i])
-                num2=int(num[i:j])
-                num3=num1+num2
-                mynum=list(num[:j])
-                while len(mynum)<len(num):
-                    mynum.extend([temp for temp in str(num3)])
-                    num1,num2=num2,num3
-                    num3=num1+num2
-                if ''.join(mynum)==num:
-                    return True
-        return False
+        n,current=len(num),[]
+        def backtrack(index):
+            if index==n:
+                return len(current)>2                
+            ans=False
+            for i in range(index,n):
+                temp=num[index:i+1]
+                if (temp[0]!='0' or len(temp)==1) and (len(current)<2 or current[-1]+current[-2]==int(temp)):
+                    current.append(int(temp))
+                    ans|=backtrack(i+1)
+                    current.pop()
+                if ans: break
+            return ans
+        return backtrack(0)
+                
