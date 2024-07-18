@@ -3,12 +3,9 @@ class Solution:
         ans=0
         maxVal=nums[-1]
         for i in range(len(nums)-2,-1,-1):
-            if nums[i]<=maxVal:
-                maxVal=nums[i]
-            else:
-                numOp=(nums[i]-1)//maxVal
-                ans+=numOp
-                maxVal=nums[i]//(numOp+1)
+            numOp=(nums[i]-1)//maxVal
+            ans+=numOp
+            maxVal=nums[i]//(numOp+1)
         return ans
             
         
