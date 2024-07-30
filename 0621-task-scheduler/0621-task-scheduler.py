@@ -1,11 +1,5 @@
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
-        freq = [0] * 26
-        for task in tasks:
-            freq[ord(task) - ord('A')] += 1
-        freq.sort()
-        max_freq = freq[25] - 1
-        idle_slots = max_freq * n
-        for i in range(25):
-            idle_slots -= min(max_freq, freq[i])
-        return idle_slots + len(tasks) if idle_slots > 0 else len(tasks)
+        freq = list(Counter(tasks).values())
+        max_freq = max(freq)
+        return (max_freq-1) * n - (sum(freq)-max_freq-(freq.count(max_freq)-1)) + len(tasks) if (max_freq-1) * n - (sum(freq)-max_freq-(freq.count(max_freq)-1)) > 0 else len(tasks)
