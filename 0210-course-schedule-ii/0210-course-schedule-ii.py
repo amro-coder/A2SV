@@ -2,7 +2,7 @@ class Solution:
     def findOrder(self, n: int, prerequisites: List[List[int]]) -> List[int]:
         graph=[[] for _ in range(n)]
         for u,v in prerequisites:
-            graph[v].append(u)
+            graph[u].append(v)
             
         def dfs(node):
             vis[node]=1
@@ -22,7 +22,6 @@ class Solution:
         for node in range(n):
             if vis[node]==0:
                 cycle|=dfs(node)
-        ans.reverse()
         return [] if cycle else ans
                     
             
