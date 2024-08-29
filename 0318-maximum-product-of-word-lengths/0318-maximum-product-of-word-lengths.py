@@ -3,9 +3,10 @@ class Solution:
         n=len(words)
         rep=[0]*n
         for i in range(n):
+            fastds=set(words[i])
             val=0
             for c in range(26):
-                if chr(c+97) in words[i]:
+                if chr(c+97) in fastds:
                     val+=1<<c
             rep[i]=val
         ans=0
