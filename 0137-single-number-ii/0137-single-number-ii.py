@@ -1,21 +1,17 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        cnt_pos=[0]*32
-        cnt_neg=[0]*32
+        cnt=[0]*33
         for val in nums:
-            if val>=0:
-                for i in range(32):
-                    cnt_pos[i]+=(val>>i)&1
-            else:
-                for i in range(32):
-                    cnt_neg[i]+=(abs(val)>>i)&1
+            for i in range(33):
+                cnt[i]+=(val>>i)&1
         ans=0
-        for i in range(32):
-            if cnt_pos[i]%3:
-                ans+=1<<i
-        for i in range(32):
-            if cnt_neg[i]%3:
-                ans-=1<<i
+        if cnt[32]%3==1:
+            for i in range(33):
+                if cnt[i]%3==0:
+                    ans-=1<<i
+            ans-=1
+        else:
+            for i in range(33):
+                if cnt[i]%3:
+                    ans+=1<<i
         return ans
-            
-        
