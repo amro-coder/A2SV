@@ -2,8 +2,10 @@ class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
         
         def find_parent(x):
+            node=x
             while(x!=parent[x]):
                 x=parent[x]
+            while node!=x: node,parent[node]=parent[node],x
             return x
 
         def unite(x,y):
